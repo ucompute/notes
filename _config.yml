@@ -1,0 +1,10 @@
+title: UCompute engineering notes
+description: Technical notes from the UCompute project. In development; no public release. Apache-2.0; source not yet published.
+url: https://ucompute.github.io
+baseurl: /notes
+plugins:
+  - jekyll-sitemap
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+include: [b1d8674aecd8b2fc96497ccb3c2cd26e.txt]
