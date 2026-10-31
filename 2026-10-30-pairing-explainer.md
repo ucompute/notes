@@ -97,4 +97,4 @@ UCompute runs models through a pinned release of llama.cpp (MIT; b11609 in the O
 
 ---
 
-*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Please do not post suspected security problems publicly; a private reporting route will be listed here when it exists. UCompute is in development. There is no public release or download yet.*
+*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
