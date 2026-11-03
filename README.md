@@ -12,5 +12,6 @@ Not related to the uCompute RP2040 boards, Universal Compute products or any tok
 - [Point the official OpenAI Python and JavaScript clients at a local server](2026-11-02-openai-client-base-url.md)
 - [What binding a local AI server to 0.0.0.0 exposes, and a sixty-second self-check](2026-11-03-what-0000-exposes.md)
 - [Running a prompt on your other computer without opening a port to everyone on the Wi-Fi](2026-11-04-other-computer-without-open-port.md)
+- [UCompute Mesh and NVIDIA PAIR, fact by fact](2026-11-05-ucompute-and-nvidia-pair.md)
 
 Feed: [feed.xml](feed.xml). Each note states the hardware and builds it rests on; numbers are never performance claims.
