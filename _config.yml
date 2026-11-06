@@ -29,3 +29,5 @@ defaults:
     values: {description: "UCompute Mesh and NVIDIA's Personal AI Router (PAIR) compared fact by fact: pairing, where a request runs, encrypted traffic, request records and removing a machine."}
   - scope: {path: "2026-11-06-windows-firewall-what-the-rule-covers.md"}
     values: {description: "What a Windows firewall rule for a local AI server actually covers, what 'private' means to Windows, and how to read the rules already on your machine."}
+  - scope: {path: "2026-11-07-shared-api-key-is-not-device-trust.md"}
+    values: {description: "Five local AI servers decide whether to answer a request in four ways. Their own words show what a shared API key proves and what it does not."}

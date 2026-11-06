@@ -14,5 +14,6 @@ Not related to the uCompute RP2040 boards, Universal Compute products or any tok
 - [Running a prompt on your other computer without opening a port to everyone on the Wi-Fi](2026-11-04-other-computer-without-open-port.md)
 - [UCompute Mesh and NVIDIA PAIR, fact by fact](2026-11-05-ucompute-and-nvidia-pair.md)
 - [Windows firewall prompts for local AI servers: what a rule covers, and how to read yours](2026-11-06-windows-firewall-what-the-rule-covers.md)
+- [A shared API key is not device trust](2026-11-07-shared-api-key-is-not-device-trust.md)
 
 Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](feed.xml). Each note states the hardware and builds it rests on; numbers are never performance claims.
