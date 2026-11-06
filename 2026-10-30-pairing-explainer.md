@@ -4,7 +4,7 @@
 
 You have a laptop and a second computer. You want a prompt typed on the laptop to run on the other machine. The usual way to do this with a local model server is to bind it to every network interface and point the laptop at the other machine's address. That works, and it also means the port is the whole trust boundary: any client on the network that can reach it can send prompts and read answers. UCompute Mesh takes a different route: two devices pair once with a short code; a paired device still refuses every off-device request until you allow it; each off-device request it does run is recorded without the prompt or the response; and you can revoke a device at any time.
 
-UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. Each request runs whole on one device; UCompute does not split a model across devices. (Tested with development builds between one Mac and one Windows laptop, and between that Mac and one Linux computer, all on the same local network; the exact scope is listed under "Where this has run".)
+UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. Each request runs whole on one device. (Tested with development builds between one Mac and one Windows laptop, and between that Mac and one Linux computer, all on the same local network; the exact scope is listed under "Where this has run".)
 
 ## Every device has one key
 
@@ -74,7 +74,7 @@ In our two-machine tests, its connection closed less than a tenth of a second af
 ## What this does not do
 
 - It does not hide your prompt from the device that runs it. Encryption protects the traffic from observers on the network, not from the endpoint. The device that runs your request processes your prompt. Pair only devices you control or trust.
-- It does not pool devices. Each request runs whole on one device; UCompute does not split a model across devices. Running one model across several devices is planned, with no date.
+- It does not pool devices. Each request runs whole on one device. Running one model across several devices is planned, with no date.
 - It does not work across the internet. The evidence covers two devices on the same local network. There is no relay and no NAT traversal.
 - It is not a stable protocol. One implementation exists and its peer profile is experimental.
 
@@ -97,6 +97,6 @@ UCompute runs models through a pinned release of llama.cpp (MIT; b11609 in the O
 
 ---
 
-*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
+*Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
 
 *Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](https://ucompute.github.io/notes/feed.xml).*

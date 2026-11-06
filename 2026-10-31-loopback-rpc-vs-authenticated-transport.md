@@ -32,7 +32,7 @@ Read together, the two documents describe a tool for two processes that trust ea
 
 The project's advisory GHSA-j8rj-fmpv-wcxw is dated 26 March 2026, and the CVE record (CVE-2026-34159, CVSS 3.1 base score 9.8, critical) 1 April 2026: in RPC builds up to b7991, a tensor deserialization path skipped bounds validation, and an unauthenticated attacker with TCP access to the RPC server port could read and write the process's memory and, combined with pointer leaks from other RPC messages, run code on the host. The CVE record names b8492 as the fixed build. The project found it, fixed it and documented it. What the advisory shows is that for this component, "whoever can reach the port" is the whole threat model, exactly as the README says. (The release UCompute pins, b11609, is later than that fix, and the Mesh path does not use the RPC backend, as described below.)
 
-*Update, 6 November 2026.* Two later CVE records, both assigned by VulDB and published 23 August 2026, concern the same RPC server at commit bec4772f6. [CVE-2026-78147](https://www.cve.org/CVERecord?id=CVE-2026-78147) reports a remotely reachable flaw in `deserialize_tensor` and says it is distinct from CVE-2026-34159. [CVE-2026-78148](https://www.cve.org/CVERecord?id=CVE-2026-78148) reports a remotely triggered null-pointer dereference in `rpc_server::graph_compute`. Neither record names a fixed build, and the GitHub issues they link were closed as not planned. This note has not reproduced either report. The boundary is the one above: keep that port off any network you do not fully control.
+*Update, 6 November 2026.* Two later CVE records, both assigned by VulDB and published 23 August 2026, concern the same RPC server at commit bec4772f6. [CVE-2026-78147](https://www.cve.org/CVERecord?id=CVE-2026-78147) reports a remotely reachable flaw in `deserialize_tensor` and says it is distinct from CVE-2026-34159. [CVE-2026-78148](https://www.cve.org/CVERecord?id=CVE-2026-78148) reports a remotely triggered null-pointer dereference in `rpc_server::graph_compute`. Neither record names a fixed build. Both linked GitHub issues were closed automatically for inactivity, which GitHub labels "not planned", and the pull request linked from CVE-2026-78148 was still open on 6 November 2026. This note has not reproduced either report. The boundary is the one above: keep that port off any network you do not fully control.
 
 ## What the warning means for a two-computer setup
 
@@ -44,13 +44,13 @@ UCompute keeps the engine local and puts the network behind a separate, authenti
 
 - **Engine ports never leave the machine.** UCompute runs llama.cpp's server as a supervised child process bound to loopback, with a random per-process API key. There is no setting to expose that port.
 - **The only path between devices is authenticated and encrypted.** Traffic between paired devices is encrypted and both ends are authenticated: QUIC with TLS 1.3 and device keys pinned at pairing. Your device will not send work to a device you have not paired. There is no plaintext peer transport and no downgrade negotiation. A packet capture on one host showed no readable prompt text; a two-host capture has not been done yet.
-- **The Mesh path does not use the RPC backend.** UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. What crosses the network is a request to a paired device, which runs it entirely on its own engine and streams the result back. Each request runs whole on one device; UCompute does not split a model across devices, so a model has to fit the device you choose. (Tested with development builds between one Mac and one Windows laptop, and between that Mac and one Linux computer, on the same local network; the scope is listed under "Where this has run".)
+- **The Mesh path does not use the RPC backend.** UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. What crosses the network is a request to a paired device, which runs it entirely on its own engine and streams the result back. Each request runs whole on one device, so a model has to fit the device you choose. (Tested with development builds between one Mac and one Windows laptop, and between that Mac and one Linux computer, on the same local network; the scope is listed under "Where this has run".)
 - **So if a model does not fit on either machine alone, UCompute does not solve that today;** the RPC backend does, under the conditions its README sets.
 - **The device that runs your request processes your prompt. Pair only devices you control or trust.** Encryption protects the traffic from observers on the network, not from the endpoint.
 
 ## Planned, with no date
 
-Running one model across several devices is planned, with no date. It does not exist today. The engineering design that has been written for splitting one model between two devices keeps both ends of the RPC connection on loopback and carries the bytes only inside the same authenticated connection that pairing established, with policy checks on both devices. It is a design under test on one computer, not a feature. This note will be updated when that changes.
+Running one model across several devices is planned, with no date. It is not a feature. The engineering design for splitting one model between two devices keeps both ends of the RPC connection on loopback and carries the bytes only inside the existing authenticated connection between the paired devices, with policy checks on both devices. It is a design under test. This note will be updated when that changes.
 
 ## If you want to use the RPC backend anyway
 
@@ -64,6 +64,6 @@ UCompute's code is licensed under Apache-2.0. The source has not been published 
 
 ---
 
-*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
+*Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
 
 *Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](https://ucompute.github.io/notes/feed.xml).*

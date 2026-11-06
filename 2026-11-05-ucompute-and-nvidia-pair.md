@@ -12,7 +12,7 @@ This page lines the two up on the facts each project publishes, in each project'
 |---|---|---|
 | Can you install it today? | Yes: "Windows `.exe`; Linux `.deb`; macOS `.dmg`" | No. There is no public release or download yet. |
 | License | Apache-2.0 | Apache-2.0. The source has not been published yet. |
-| Where a request runs | "PAIR routes each independent request to one node." | Each request runs whole on one device; UCompute does not split a model across devices. |
+| Where a request runs | "PAIR routes each independent request to one node." | Each request runs whole on one device. |
 | Who picks the machine | PAIR: requests "can be routed to eligible nodes according to engine availability, model availability, and current workload" | You choose which device runs a request. |
 | Pairing | "The inviting machine shows a six-digit PIN, and you enter that PIN on the machine you invited." | A short code, after which each device pins the other's key. |
 | Traffic after pairing | "designed to use certificates and mutual TLS after pairing" | QUIC with TLS 1.3 and device keys pinned at pairing; both ends are authenticated. |
@@ -38,7 +38,7 @@ The two projects make the same promise and the same limit. PAIR's README:
 
 > PAIR routes each independent request to one node. It does **not** pool GPU memory, combine GPUs into a larger logical GPU, shard one model across machines, or split an in-flight inference request between nodes.
 
-UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. Each request runs whole on one device; UCompute does not split a model across devices. (Tested with development builds between one Apple M2 Mac and one Windows 11 laptop (Intel Arc 140V) on the same Wi-Fi network or phone hotspot, and between that Mac and one Linux desktop computer (Ubuntu, processor only, a development build of the background program compiled and started by hand; no app or installer) on a home Wi-Fi network. Linux is a planned platform, not a supported one. Pairing between two Macs is not yet shown to work.)
+UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. Each request runs whole on one device. (Tested with development builds between one Apple M2 Mac and one Windows 11 laptop (Intel Arc 140V) on the same Wi-Fi network or phone hotspot, and between that Mac and one Linux desktop computer (Ubuntu, processor only, a development build of the background program compiled and started by hand; no app or installer) on a home Wi-Fi network. Linux is a planned platform, not a supported one. Pairing between two Macs is not yet shown to work.)
 
 The difference is who decides. PAIR is a router: it chooses an eligible machine by engine, model and load, which suits concurrent work such as the "multi-agent applications" its README names. UCompute leaves the choice of device to you. Neither combines two machines' memory, so a model that does not fit on any one of your machines does not fit in either.
 
@@ -92,6 +92,6 @@ Corrections from either project's users or maintainers are welcome at hello@ucom
 
 ---
 
-*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
+*Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
 
 *Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](https://ucompute.github.io/notes/feed.xml).*

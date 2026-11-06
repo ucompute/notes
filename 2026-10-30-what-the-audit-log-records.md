@@ -52,7 +52,7 @@ A paired device could try to use that rotation against you: flood you with reque
 - It does not hide your prompt from the device that runs it. The device that runs your request processes your prompt. Pair only devices you control or trust. The audit trail tells you that a request went to that device; it cannot tell you what the device did with it.
 - It does not record local-only work. Your prompts and responses stay on your device unless you pair another device and choose to run a request there. Local-only mode refuses every off-device request. Downloading a model or the engine uses the internet.
 - It is not a forensic archive. What is dropped at rotation is reported, not recovered.
-- There is one serving device per request. Each request runs whole on one device; UCompute does not split a model across devices (tested with development builds between one Mac and one Windows laptop and between that Mac and one Linux computer; the full scope is below).
+- There is one serving device per request. Each request runs whole on one device (tested with development builds between one Mac and one Windows laptop and between that Mac and one Linux computer; the full scope is below).
 
 ## Where this has run
 
@@ -62,6 +62,6 @@ UCompute runs models through a pinned release of llama.cpp (MIT; b11609 in the O
 
 ---
 
-*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
+*Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
 
 *Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](https://ucompute.github.io/notes/feed.xml).*

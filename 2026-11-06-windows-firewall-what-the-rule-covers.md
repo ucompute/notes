@@ -89,7 +89,7 @@ A narrow rule is still only a network rule. It decides which traffic reaches the
 
 *This section describes UCompute. UCompute is in development. There is no public release or download yet.*
 
-UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. Each request runs whole on one device; UCompute does not split a model across devices. (Tested with development builds between one Apple M2 Mac and one Windows 11 laptop (Intel Arc 140V) on the same Wi-Fi network or phone hotspot, and between that Mac and one Linux desktop computer (Ubuntu, processor only, a development build of the background program compiled and started by hand; no app or installer) on a home Wi-Fi network. Linux is a planned platform, not a supported one. Pairing between two Macs is not yet shown to work.)
+UCompute Mesh lets you pair your own devices with a short code and choose which one runs a request. Each request runs whole on one device. (Tested with development builds between one Apple M2 Mac and one Windows 11 laptop (Intel Arc 140V) on the same Wi-Fi network or phone hotspot, and between that Mac and one Linux desktop computer (Ubuntu, processor only, a development build of the background program compiled and started by hand; no app or installer) on a home Wi-Fi network. Linux is a planned platform, not a supported one. Pairing between two Macs is not yet shown to work.)
 
 For a paired device to reach a Windows computer, the firewall has to let it in. On Windows, UCompute asks before it lets your paired devices reach it through the firewall, and the rule it adds covers only its own program, on private networks. That was shown in October 2026 on one Windows 11 laptop with a development build (later builds not yet re-checked); Windows asks for administrator approval.
 
@@ -101,6 +101,6 @@ No platform is declared supported yet. macOS 26.2 on Apple M2 and Windows 11 on 
 
 ---
 
-*Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
+*Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
 
 *Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](https://ucompute.github.io/notes/feed.xml).*
