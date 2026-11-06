@@ -8,3 +8,24 @@ plugins:
   - jekyll-optional-front-matter
   - jekyll-titles-from-headings
 include: [b1d8674aecd8b2fc96497ccb3c2cd26e.txt]
+defaults:
+  - scope: {path: "2026-10-30-pairing-explainer.md"}
+    values: {description: "How UCompute development builds pair two devices with a single-use six-digit code and pinned keys, decide what may run remotely, log it and revoke access."}
+  - scope: {path: "2026-10-30-what-the-audit-log-records.md"}
+    values: {description: "What UCompute's audit log records for each off-device request, what it never records, and which tests hold those rules in development builds."}
+  - scope: {path: "2026-10-31-loopback-rpc-vs-authenticated-transport.md"}
+    values: {description: "llama.cpp's RPC backend is meant for trusted, isolated networks. Its README and security advisories explain why, and how UCompute connects two computers instead."}
+  - scope: {path: "2026-10-31-verify-a-gguf-download.md"}
+    values: {description: "Check a GGUF file against its published SHA-256: where Hugging Face shows the hash, how to hash the file you have, and what a match does and does not prove."}
+  - scope: {path: "2026-11-01-memory-fit-explainer.md"}
+    values: {description: "How to estimate whether a GGUF model fits in memory before you load it, what counts besides the file size, and how UCompute development builds work it out."}
+  - scope: {path: "2026-11-02-openai-client-base-url.md"}
+    values: {description: "Point the official OpenAI Python and JavaScript clients at a local model server: change the base URL and the model id, and keep the rest of your code."}
+  - scope: {path: "2026-11-03-what-0000-exposes.md"}
+    values: {description: "What changes when a local AI server binds to 0.0.0.0 instead of loopback, who can then reach it, and a sixty-second self-check you can run now."}
+  - scope: {path: "2026-11-04-other-computer-without-open-port.md"}
+    values: {description: "Three common ways to run a prompt on your other computer (widen the bind, an SSH tunnel, a VPN overlay), the question each leaves open, and another approach."}
+  - scope: {path: "2026-11-05-ucompute-and-nvidia-pair.md"}
+    values: {description: "UCompute Mesh and NVIDIA's Personal AI Router (PAIR) compared fact by fact: pairing, where a request runs, encrypted traffic, request records and removing a machine."}
+  - scope: {path: "2026-11-06-windows-firewall-what-the-rule-covers.md"}
+    values: {description: "What a Windows firewall rule for a local AI server actually covers, what 'private' means to Windows, and how to read the rules already on your machine."}

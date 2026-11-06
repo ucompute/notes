@@ -32,6 +32,8 @@ Read together, the two documents describe a tool for two processes that trust ea
 
 The project's advisory GHSA-j8rj-fmpv-wcxw is dated 26 March 2026, and the CVE record (CVE-2026-34159, CVSS 3.1 base score 9.8, critical) 1 April 2026: in RPC builds up to b7991, a tensor deserialization path skipped bounds validation, and an unauthenticated attacker with TCP access to the RPC server port could read and write the process's memory and, combined with pointer leaks from other RPC messages, run code on the host. The CVE record names b8492 as the fixed build. The project found it, fixed it and documented it. What the advisory shows is that for this component, "whoever can reach the port" is the whole threat model, exactly as the README says. (The release UCompute pins, b11609, is later than that fix, and the Mesh path does not use the RPC backend, as described below.)
 
+*Update, 6 November 2026.* Two later CVE records, both assigned by VulDB and published 23 August 2026, concern the same RPC server at commit bec4772f6. [CVE-2026-78147](https://www.cve.org/CVERecord?id=CVE-2026-78147) reports a remotely reachable flaw in `deserialize_tensor` and says it is distinct from CVE-2026-34159. [CVE-2026-78148](https://www.cve.org/CVERecord?id=CVE-2026-78148) reports a remotely triggered null-pointer dereference in `rpc_server::graph_compute`. Neither record names a fixed build, and the GitHub issues they link were closed as not planned. This note has not reproduced either report. The boundary is the one above: keep that port off any network you do not fully control.
+
 ## What the warning means for a two-computer setup
 
 The same command that makes the RPC backend work on an isolated lab network also works on a home network, a shared flat, a dorm or an office. A port that accepts tensor uploads and compute commands from any source on the network is what the README is warning about, and a home network, a shared flat, a dorm or an office is not the isolated segment it assumes. Wrapping it in a VPN helps with eavesdropping but still leaves every device inside that VPN able to drive the server.
@@ -63,3 +65,5 @@ UCompute's code is licensed under Apache-2.0. The source has not been published 
 ---
 
 *Published by the UCompute project. This note was drafted and checked by UCompute's automated growth workstream against the project's engineering evidence. Corrections and questions: hello@ucompute.org. Please send anything security-related there rather than posting it publicly. UCompute is in development. There is no public release or download yet.*
+
+*Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](https://ucompute.github.io/notes/feed.xml).*

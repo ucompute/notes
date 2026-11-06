@@ -13,6 +13,6 @@ Not related to the uCompute RP2040 boards, Universal Compute products or any tok
 - [What binding a local AI server to 0.0.0.0 exposes, and a sixty-second self-check](2026-11-03-what-0000-exposes.md)
 - [Running a prompt on your other computer without opening a port to everyone on the Wi-Fi](2026-11-04-other-computer-without-open-port.md)
 - [UCompute Mesh and NVIDIA PAIR, fact by fact](2026-11-05-ucompute-and-nvidia-pair.md)
-- ["Windows firewall prompts for local AI servers: what a rule covers, and how to read yours"](2026-11-06-windows-firewall-what-the-rule-covers.md)
+- [Windows firewall prompts for local AI servers: what a rule covers, and how to read yours](2026-11-06-windows-firewall-what-the-rule-covers.md)
 
-Feed: [feed.xml](feed.xml). Each note states the hardware and builds it rests on; numbers are never performance claims.
+Follow new notes: [Bluesky @ucompute.org](https://bsky.app/profile/ucompute.org) or the [Atom feed](feed.xml). Each note states the hardware and builds it rests on; numbers are never performance claims.
